@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { data } from "../data";
+import { useNavigate } from "react-router-dom";
 
 const Amazingview = () => {
   const amzview = useMemo(() => {
@@ -10,13 +11,14 @@ const Amazingview = () => {
       [data]
     );
   });
+  const navigate = useNavigate();
   return (
     <div>
       <div className="grid grid-cols-4 grid-rows-6 grid-flow-row gap-2 ml-14 mt-7 mb-10">
         {amzview.map((element, id) => {
           return (
-            <div className="card bg-base-100 w-80 " key={element.id}>
-              <figure>
+            <div className="card bg-base-100 w-80 bg-white" key={element.id}>
+              <figure onClick={()=>navigate(`/product_deatails/${element.id}`)}>
                 <div className="carousel w-full h-80 rounded-xl">
                   <div
                     id={`slide${id}.1`}

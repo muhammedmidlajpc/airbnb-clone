@@ -15,15 +15,15 @@ const Product_deatails = () => {
 
   return (
     <div>
-      <div>
-        <h1>{product.title}</h1>
-        <div>
-          <button>
-            <img src={uplaod} alt="" srcset="" />
+      <div className="flex">
+        <h1 className="ml-28 font-bold text-3xl">{product.title}</h1>
+        <div className="absolute right-28">
+          <button className="m-3">
+            <img className="w-4 h-5" src={uplaod} alt="" srcset="" />
             share
           </button>
-          <button>
-            <img src={heart} alt="" srcset="" />
+          <button className="">
+            <img className="w-4 h-5" src={heart} alt="" srcset="" />
             save
           </button>
         </div>
@@ -31,7 +31,7 @@ const Product_deatails = () => {
       <div className="flex justify-center m-10">
       <div className="grid grid-cols-2  w-[1300px] h-[500px] gap-3">
        <div className="">
-        <img className="h-full w-full" src={product.image[1]} alt="" />
+        <img className="h-[510px] w-full" src={product.image[1]} alt="" />
        </div>
        <div className=" grid grid-cols-2 gap-3">
         <div className="bg-yellow-200">
@@ -54,7 +54,10 @@ const Product_deatails = () => {
           <h6>{product.description}</h6>
         </div>
         <div>
-          <img src="" alt="" srcset="" />
+          <div><h1>{product.status}</h1></div>
+          <div><button>Reserve</button></div>
+          <div><h6>you won't be charged yet</h6></div>
+          <div><h1>Total before tax</h1><h1>{product.status}</h1></div>
         </div>
       </div>
     </div>

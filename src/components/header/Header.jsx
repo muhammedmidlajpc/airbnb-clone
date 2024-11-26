@@ -16,7 +16,7 @@ import leftarrow from "../../assets/Airbnb _ Holiday rentals_ cabins_ beach hous
 import rightarrow from "../../assets/Airbnb _ Holiday rentals_ cabins_ beach houses _ more/logo/right arrow.svg";
 import newk from "../../assets/Airbnb _ Holiday rentals_ cabins_ beach houses _ more/logo/new.jpg";
 import daisyui from "daisyui";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { data } from "../../data";
 const Header = () => {
@@ -26,6 +26,11 @@ const Header = () => {
       return element.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
   }, [searchQuery, data]);
+  const navigate = useNavigate();
+  const handleSearch = (id) => {
+    navigate(`/product_deatails/${id}`);
+    setsearchQuery("");
+  };
   return (
     <div>
       <header className="header bg-white ">
@@ -95,9 +100,15 @@ const Header = () => {
                 }}
               />
               {searchQuery && (
-                <div className="absolute w-full h-40 bg-green-200 overflow-auto">
+                <div className="absolute w-full h-40  bg-red-50  overflow-auto scroll-m-0">
                   {filtered.map((element) => {
-                    return <h3>{element.title}</h3>;
+                    return (
+                      <div className="w-full h-[50px] text-black m-2 hover:bg-slate-300">
+                        <h3 onClick={() => handleSearch(element.id)}>
+                          {element.title}
+                        </h3>
+                      </div>
+                    );
                   })}
                 </div>
               )}

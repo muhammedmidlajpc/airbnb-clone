@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { data } from "../data";
+import { useNavigate } from "react-router-dom";
 
 const Icon = () => {
   const icondata = useMemo(() => {
@@ -18,6 +19,7 @@ const Icon = () => {
       [data]
     );
   });
+  const navigate=useNavigate()
   console.log(icondata);
   return (
     <div>
@@ -28,7 +30,7 @@ const Icon = () => {
               className="card bg-base-100 w-80  relative bg-white"
               key={element.id}
             >
-              <figure>
+              <figure onClick={()=>navigate(`/product_deatails/${element.id}`)}>
                 <div className="carousel w-full h-80 rounded-xl">
                   <div
                     id={`slide${id}.1`}

@@ -18,7 +18,7 @@ const Omg = () => {
       <div className="grid grid-cols-4 grid-rows-6 grid-flow-row gap-2 ml-14 mt-7 mb-10">
         {hotel.map((element, id) => {
           return (
-            <div className="card bg-base-100 w-80 " key={element.id}>
+            <div className="card bg-base-100 w-80 bg-white" key={element.id}>
               <figure onClick={()=>navigate(`/product_deatails/${element.id}`)}>
                 <div className="carousel w-full h-80 rounded-xl">
                   <div
